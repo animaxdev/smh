@@ -5,14 +5,19 @@ Samehadaku scraper
      $ cd Smhdk/src/bypass #[https://github.com/timmyrs/Universal-Bypass] #deploy  
 
 
-![DEMO](src/s.gif)     
+![DEMO](src/s.gif)  
 
-## usage
+
 ```php
 $bc = basename(__FILE__);
 print "params argument:";
 print "/$bc?page={1..99}"; 
 ```  
+
+- `/$bc?home` main  
+- `/$bc?page={1..99}` page  
+- `/$bc?search=$argv[0]` query  
+
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
