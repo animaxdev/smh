@@ -3,7 +3,7 @@
 <font face=Ubuntu>
 <style>
   body { 
-    background: white url("http://smhdk.test/src/shinax.png") no-repeat fixed center; 
+    background: white url("/src/shinax.png") no-repeat fixed center; 
     -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -40,13 +40,13 @@ if(isset($_GET['page'])){
     {
         $sed = $text;
         $sed = str_replace('Update Anime', '<p hidden>', $sed);
-        $sed = str_replace('<a href="', '<a href="http://smhdk.test/application/controllers/get.php?anti=', $sed);
+        $sed = str_replace('<a href="https://www.samehada.tv/', '<a href="/application/controllers/get.php?anti=', $sed);
         $sed = str_replace('<b>Posted', '<font color=gray><b>Posted', $sed);
         return $sed;
     }
 
 $babi = "/page/" . $_GET['page'] . "/";
-$bangsat = 'https://www.samehadaku.tv';
+$bangsat = 'https://www.samehada.tv';
 $kontol = $bangsat . $babi; 
 $curl = curl_init($kontol); 
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE); 
@@ -70,12 +70,12 @@ if(isset($_GET['home'])){
 function wordFilter($text)
 {
     $sed = $text;
-    $sed = str_replace('Update Anime', '<p hidden>', $sed);
-    $sed = str_replace('<a href="', '<a href="http://smhdk.test/application/controllers/get.php?anti=', $sed);
+    $sed = str_replace('Update Anime', '', $sed);
+    $sed = str_replace('<a href="https://www.samehada.tv/', '<a href="/application/controllers/get.php?anti=', $sed);
     $sed = str_replace('<b>Posted', '<font color=gray><b>Posted', $sed);
     return $sed;
 }
-$curl = curl_init('https://www.samehadaku.tv/'); 
+$curl = curl_init('https://www.samehada.tv/'); 
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE); 
 $page = curl_exec($curl); 
 if(curl_errno($curl)) 
@@ -102,12 +102,12 @@ if(isset($_GET['search'])){
         $sed = $text;
         $sed = str_replace('TV', '<p hidden>', $sed);
         $sed = str_replace('<div class="rating">', '<div hidden>', $sed);
-        $sed = str_replace('href="', 'href="http://smhdk.test/application/controllers/series.php?anti=', $sed);
+        $sed = str_replace('href="https://www.samehada.tv/', 'href="/application/controllers/series.php?anti=https://www.samehadaku.tv/', $sed);
         return $sed;
     }
 
 $babi = "?s=" . $_GET['search'];
-$bangsat = 'https://www.samehadaku.tv/';
+$bangsat = 'https://www.samehada.tv/';
 $kontol = $bangsat . $babi; 
 $curl = curl_init($kontol); 
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE); 
@@ -148,7 +148,7 @@ echo "
 /$bc?page={1..99) [otherpages]";
 
     echo'
-    <form action="http://smhdk.test/application/views/welcome_message.php?search=" method="get">
+    <form action="/application/views/welcome_message.php?search=" method="get">
     <font face="Consolas" size="3" color="green"><p>
     SEARCH QUERY: <input type="text" style="width:20%;" placeholder="ie: Kimetsu no yaiba;kimetsu;yaiba" name="search">
     <input type="submit" value=" > ">
@@ -157,7 +157,7 @@ echo "
     </form><p>';
     
     echo'
-    <form action="http://smhdk.test/application/views/welcome_message.php?page=" method="get">
+    <form action="/application/views/welcome_message.php?page=" method="get">
     <font face="Consolas" size="3" color="green"><p>
     PAGE: <input type="text" style="width:2%;"  name="page">
     <input type="submit" value=" > ">

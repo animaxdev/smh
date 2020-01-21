@@ -4,7 +4,7 @@
 <font face=Ubuntu>
 <style>
   body { 
-    background: white url("http://smhdk.test/src/shinax.png") no-repeat fixed center; 
+    background: white url("/src/shinax.png") no-repeat fixed center; 
     -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -62,7 +62,7 @@ function wordFilter3($text)
     $ambilkata = str_replace('<div id="breadcrumbs">', '<div hidden>', $ambilkata);
     $ambilkata = str_replace('<span class="leftoff">', '<span hidden>', $ambilkata);
     $ambilkata = str_replace('<span>', '<span hidden>', $ambilkata);
-    $ambilkata = str_replace('href="', 'href="http://smhdk.test/application/controllers/get.php?anti=', $ambilkata);
+    $ambilkata = str_replace('<a href="https://www.samehada.tv/', '<a href="/application/controllers/get.php?anti=', $ambilkata);
     return $ambilkata;
 }
 
@@ -105,7 +105,7 @@ echo "
 /$bc?page={1..99) [otherpages]";
 
     echo'
-    <form action="http://smhdk.test/application/views/welcome_message.php?search=" method="get">
+    <form action="/application/views/welcome_message.php?search=" method="get">
     <font face="Consolas" size="3" color="green"><p>
     SEARCH QUERY: <input type="text" style="width:20%;" placeholder="ie: Kimetsu no yaiba;kimetsu;yaiba" name="search">
     <input type="submit" value=" > ">
@@ -114,7 +114,7 @@ echo "
     </form><p>';
     
     echo'
-    <form action="http://smhdk.test/application/views/welcome_message.php?page=" method="get">
+    <form action="/application/views/welcome_message.php?page=" method="get">
     <font face="Consolas" size="3" color="green"><p>
     PAGE: <input type="text" style="width:2%;"  name="page">
     <input type="submit" value=" > ">

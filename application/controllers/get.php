@@ -1,10 +1,9 @@
-<title>smhdk | Download</title>
 <link href="http://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet" type="text/css">
 <link rel="stylesheet" type="text/css" href="src/style.css">
 <font face=Ubuntu>
 <style>
   body { 
-    background: white url("http://localhost/smhdk/shinax.png") no-repeat fixed center; 
+    background: white url("/src/shinax.png") no-repeat fixed center; 
     -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -41,8 +40,10 @@ $form = '<form action="get.php" method="get">
 print $form;
 
 if(isset($_GET['anti'])){
-$anti = $_GET['anti'];
-$curl = curl_init($anti); 
+  $anti = $_GET['anti'];
+  $bangsat = 'https://www.samehada.tv/';
+  $kontol = $bangsat . $anti; 
+  $curl = curl_init($kontol); 
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE); 
 $page = curl_exec($curl); 
 if(curl_errno($curl)) 
@@ -75,8 +76,19 @@ else
     print "Not found";
 
 }
+function sed($text)
+{
+    $sed = $text;
+    $sed = str_replace('-', ' ', $sed);
+    $sed = str_replace('/', '', $sed);
+    
+    return $sed;
+}
+
+$judul = sed(strtoupper($_GET['anti']));
 
 ?>
+<title><?php echo $judul,' - Download'; ?></title>
 </div></div></div>
 <p><center>
  <div class="intro">
@@ -85,7 +97,7 @@ else
 <b>&copy; Sin,</b>
 
 <br><font size="3" color="gray">
-feel free to pull,issues,or stealing at:<br><font color=blue> https://github.com/sinkaroid/antifansub</font>
+feel free to pull,issues,or stealing at:<br><font color=blue> https://github.com/sinkaroid/smhdk</font>
 </font>
 </div>   
 
@@ -103,7 +115,7 @@ echo "
 /$bc?page={1..99) [otherpages]";
 
     echo'
-    <form action="http://smhdk.test/application/views/welcome_message.php?search=" method="get">
+    <form action="/application/views/welcome_message.php?search=" method="get">
     <font face="Consolas" size="3" color="green"><p>
     SEARCH QUERY: <input type="text" style="width:20%;" placeholder="ie: Kimetsu no yaiba;kimetsu;yaiba" name="search">
     <input type="submit" value=" > ">
@@ -112,7 +124,7 @@ echo "
     </form><p>';
     
     echo'
-    <form action="http://smhdk.test/application/views/welcome_message.php?page=" method="get">
+    <form action="/application/views/welcome_message.php?page=" method="get">
     <font face="Consolas" size="3" color="green"><p>
     PAGE: <input type="text" style="width:2%;"  name="page">
     <input type="submit" value=" > ">
